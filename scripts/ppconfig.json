@@ -106,6 +106,15 @@
             "fontSize": 16,
             "fontWeight": "bold",
             "tabBarItem": []
+        },
+        "webview": {
+            "userAgent": "",
+            "javaScriptEnabled": true,
+            "domStorageEnabled": true,
+            "allowFileAccess": true,
+            "loadWithOverviewMode": true,
+            "setSupportZoom": true,
+            "clearCache": true
         }
     },
     "ios": {
@@ -115,8 +124,8 @@
         "webUrl": "https://juejin.cn/",
         "id": "com.xiaoshen.pakeplus.ios",
         "icon": "./app-icon.png",
-        "desc": "PakePlus Project by 1024xiaoshen",
-        "pubBody": "PakePlus ios build body",
+        "desc": "Package for personal use only, please do not use for commercial purposes（打包仅限个人使用，请勿用于传播或商业用途）",
+        "pubBody": "Package for personal use only, please do not use for commercial purposes（打包仅限个人使用，请勿用于传播或商业用途）",
         "isHtml": false,
         "debug": false
     },
@@ -132,8 +141,8 @@
         "rounded": true,
         "copyTo": "./app/src/main/res",
         "androidResDir": "./app/src/main/res",
-        "desc": "PakePlus Project by 1024xiaoshen",
-        "pubBody": "PakePlus android build body",
+        "desc": "Package for personal use only, please do not use for commercial purposes（打包仅限个人使用，请勿用于传播或商业用途）",
+        "pubBody": "Package for personal use only, please do not use for commercial purposes（打包仅限个人使用，请勿用于传播或商业用途）",
         "isHtml": false,
         "debug": false
     },
@@ -142,13 +151,13 @@
         "showName": "xiaoshen",
         "version": "0.0.2",
         "id": "com.xiaoshen.app",
-        "desc": "PakePlus Project by 1024xiaoshen",
+        "desc": "Package for personal use only, please do not use for commercial purposes（打包仅限个人使用，请勿用于传播或商业用途）",
         "webUrl": "https://juejin.cn/",
         "iconPath": "../app-icon.png",
         "inputPath": "../app-icon.png",
         "tempPath": "./processed-image.png",
         "icnsPath": "../src-tauri/icons/icon.icns",
-        "pubBody": "PakePlus desktop build body",
+        "pubBody": "Package for personal use only, please do not use for commercial purposes（打包仅限个人使用，请勿用于传播或商业用途）",
         "isHtml": false,
         "single": true,
         "state": true,

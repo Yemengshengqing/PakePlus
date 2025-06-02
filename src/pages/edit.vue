@@ -654,7 +654,6 @@ const isJson = ref(false)
 const tauriConfigRef = ref<any>(null)
 
 // 发布编译选项
-const value = ref()
 const platData = [
     {
         value: '1',
@@ -698,16 +697,16 @@ const platData = [
             },
         ],
     },
-    {
-        value: '4',
-        label: 'Android',
-        disabled: true,
-    },
-    {
-        value: '5',
-        label: 'iOS',
-        disabled: true,
-    },
+    // {
+    //     value: '4',
+    //     label: 'Android',
+    //     disabled: true,
+    // },
+    // {
+    //     value: '5',
+    //     label: 'iOS',
+    //     disabled: true,
+    // },
 ]
 
 // change app name
@@ -1456,6 +1455,10 @@ const publishWeb = async () => {
         oneMessage.error(t('limitProject'))
         return
     }
+    //  else if (store.currentProject.platform.length === 0) {
+    //     oneMessage.error(t('selectPlatform'))
+    //     return
+    // }
     const now = new Date()
     localStorage.setItem('lastClickTime', now.toISOString())
     centerDialogVisible.value = false
@@ -1502,11 +1505,21 @@ const dispatchAction = async () => {
     loadingText(t('preCompile') + 'workflow...')
     // wait file sync
     await new Promise((resolve) => setTimeout(resolve, 3000))
+    // ["1-1", "1-2", "2-1", "2-2", "3-1", "3-2"]
+    console.log('store.currentProject.platform', store.isBuild)
     const dispatchRes: any = await githubApi.dispatchWorkflow(
         store.userInfo.login,
         'PakePlus',
         {
             ref: store.currentProject.name,
+            inputs: {
+                build_macos_aarch64: 'false',
+                build_macos_x86_64: 'false',
+                build_linux_x86_64: 'false',
+                build_linux_aarch64: 'false',
+                build_windows_x86_64: 'false',
+                build_windows_aarch64: 'false',
+            },
         }
     )
     if (dispatchRes.status !== 204) {

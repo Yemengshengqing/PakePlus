@@ -13,7 +13,7 @@ export const upstreamUser = 'Sjj1024'
 export const ppRepo: string[] = ['PakePlus', 'PakePlus-Android', 'PakePlus-iOS']
 
 export const mainBranch = 'main'
-export const webBranch = 'web2'
+export const webBranch = 'web3'
 export const devBranch = 'dev'
 
 // global file size limit
@@ -1125,6 +1125,7 @@ export const createIssue = async (
 
 // check last publish date
 export const checkLastPublish = () => {
+    if (import.meta.env.DEV) return false
     const savedTime = localStorage.getItem('lastClickTime')
     if (!savedTime) return false
     const now = new Date()

@@ -1,5 +1,7 @@
 # APP 配置
 
+<BiliBili src="//player.bilibili.com/player.html?isOutside=true&aid=114591589731347&bvid=BV1wb75zrEBh&cid=30216618986&p=1"/>
+
 点击软件配置界面右上角的手机图标，即可进入移动端配置界面。
 ![](../static/imgs/phone1.webp)
 
@@ -24,7 +26,12 @@
 或者点击名称会复制下载链接，然后在浏览器打开即可下载。
 ![](../static/imgs/publish3.webp)
 
-# 编译发布
+## 注意事项
 
-APP 的编译发布需要在 APP 界面单独点击发布按钮，等待发布完成后，会自动跳转到安装包下载界面。
-APP 的安装包会和桌面端的安装包在同一个下载列表出现，以 apk 结尾的文件就是 android 安装包，以 ipa 结尾的文件是 ios 安装包。
+-   ios 仅支持 15.6 版本以上系统
+-   android 仅支持 7.0 版本以上系统
+-   安装说明文档：[ipa/apk 安装说明](../question/phone.md)
+
+<script setup>
+import BiliBili from "../components/bilibili.vue"
+</script>

@@ -745,13 +745,13 @@
                 <div class="configHeader">
                     <h4 :id="titleId" :class="titleClass" class="titleLine">
                         <span class="titleText">{{ t('moreConfig') }}</span>
-                        <el-icon class="switchIcon" @click="switchTauriConfig">
+                        <!-- <el-icon class="switchIcon" @click="switchTauriConfig">
                             <Switch />
-                        </el-icon>
+                        </el-icon> -->
                     </h4>
                 </div>
             </template>
-            <TauriConfig ref="tauriConfigRef" :isJson="isJson" />
+            <PhoneConfig ref="tauriConfigRef" :isJson="isJson" />
         </el-dialog>
         <!-- js code edit -->
         <el-dialog
@@ -845,7 +845,7 @@ import {
 } from '@/utils/common'
 import { platform } from '@tauri-apps/plugin-os'
 import { getCurrentWindow } from '@tauri-apps/api/window'
-import TauriConfig from '@/components/TauriConfig.vue'
+import PhoneConfig from '@/components/PhoneConfig.vue'
 import ImgPreview from '@/components/ImgPreview.vue'
 import Building from '@/components/Building.vue'
 
@@ -1455,7 +1455,8 @@ const toHistory = () => {
 
 // more phone config
 const morePhoneConfig = () => {
-    oneMessage.success(t('morePhoneConfig'))
+    // oneMessage.success(t('morePhoneConfig'))
+    configDialogVisible.value = true
 }
 
 // save js file content to appDataDir
@@ -1596,6 +1597,7 @@ const preview = async (resize: boolean) => {
                         width: 430,
                         height: 932,
                         userAgent:
+                            store.currentProject.phone.webview.userAgent ||
                             'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
                         url: store.currentProject.isHtml
                             ? `http://127.0.0.1:${serverPort}/index.html`

@@ -243,8 +243,20 @@
                 >
                     <!-- user logout -->
                     <el-button @click="logout">{{ t('quit') }}</el-button>
+                    <!-- sync all branch -->
+                    <el-button
+                        type="success"
+                        plain
+                        @click="forkStartShas(false)"
+                    >
+                        同步
+                    </el-button>
                     <!-- user confirm -->
-                    <el-button type="primary" @click="tokenDialog = false">
+                    <el-button
+                        type="primary"
+                        plain
+                        @click="tokenDialog = false"
+                    >
                         {{ t('confirm') }}
                     </el-button>
                 </div>
@@ -610,6 +622,7 @@ const commitShas = async (tips: boolean = true) => {
 
 // fork and start
 const forkStartShas = async (tips: boolean = true) => {
+    testLoading.value = true
     // fork action is async
     const forkRes: any = await Promise.all([
         forkPakePlus('PakePlus'),
@@ -623,7 +636,7 @@ const forkStartShas = async (tips: boolean = true) => {
     }
     await supportPP()
     // sync all branch
-    await syncAllBranch()
+    await syncAllBranch(true)
     // get commit sha
     await commitShas(tips)
 }
@@ -950,8 +963,9 @@ const mergeBranch = async (repo: string, branch: string) => {
 }
 
 // sync upstrame all branch
-const syncAllBranch = async () => {
-    if (store.token) {
+const syncAllBranch = async (init: boolean = false) => {
+    if (store.token || init) {
+        console.log('syncAllBranch', init)
         for (const repo of ppRepo) {
             console.log('syncAllBranch', repo)
             const upRes: any = await githubApi.getAllBranchs(upstreamUser, repo)
