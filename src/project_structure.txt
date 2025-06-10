@@ -1,0 +1,14 @@
+src/python_langchain/
+│
+├── app.py                  # 主应用程序入口
+├── models.py               # 数据模型定义
+├── db_service.py           # 数据库服务
+├── chat_service.py         # 聊天服务
+├── __init__.py             # 包初始化文件
+├── test_chat.py            # 聊天功能测试脚本
+├── requirements.txt        # 依赖项列表
+├── README.md               # 项目说明文档
+├── project_structure.txt   # 项目结构说明
+│
+└── static/                 # 静态文件目录
+    └── index.html          # 前端测试页面 
